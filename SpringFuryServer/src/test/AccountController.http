@@ -1,0 +1,3 @@
+@site=http://localhost:8081
+
+GET {{site}}/accounts/search?accountNo=GE-0123456789
