@@ -13,4 +13,12 @@ Demo project Apache Fury : https://fury.apache.org/
 # branch main
 - classic json communication between SimpleFuryServer and SimpleFuryClient
 
-#
+# branch fury-ser
+- Add custom converter FuryMessageConverter to serialize/deserialize object in place of json
+- Manual register objects in fury bean with FuryConfig
+- Test fury communication between SpringFuryClient and SpringFuryServer
+
+# branch fury-ser-annotation
+- Ajout d'une annotation @FurySerializer permettant de réaliser le register
+- Ajout d'un mediaType fury, *+fury afin de supporter json et fury
+- Ajout d'un check du supports dans FuryMessageConverter

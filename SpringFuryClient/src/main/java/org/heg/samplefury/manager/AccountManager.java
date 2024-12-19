@@ -21,7 +21,7 @@ public class AccountManager {
     }
 
     public void callGetAccount() {
-        LOG.info("Call getAccount to server using json serialization");
+        LOG.info("Call getAccount to server using fury serialization");
         String accountNo = "GE-0123456789";
         AccountDto accountDto = this.restClient.get().uri("/accounts/search?accountNo={accountNo}", accountNo).retrieve().body(AccountDto.class);
         LOG.info("Receive account from server : " + accountDto);

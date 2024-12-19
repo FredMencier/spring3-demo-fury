@@ -14,7 +14,7 @@ public class AccountManager {
     private static final Logger LOG = Logger.getLogger(AccountManager.class.getName());
 
     public AccountDto findByAccountNo(final String accountNo) {
-        LOG.info("Send Account using json serialization");
+        LOG.info("Send Account using fury serialization");
         ClientDto clientDto = new ClientDto(1L, "Victor", "Hugo", "France");
         return new AccountDto(1L, "GE-0123456789", clientDto, "ACTIVE", LocalDate.now(), new BigDecimal("2000.00"));
     }

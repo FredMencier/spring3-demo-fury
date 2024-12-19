@@ -13,9 +13,9 @@ import java.time.LocalDate;
 import java.util.logging.Logger;
 
 @SpringBootTest
-class DemoFuryServerApplicationTests {
+class SimpleFuryTests {
 
-	private static final Logger LOG = Logger.getLogger(DemoFuryServerApplicationTests.class.getName());
+	private static final Logger LOG = Logger.getLogger(SimpleFuryTests.class.getName());
 
 	private static Fury fury;
 
