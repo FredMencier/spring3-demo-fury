@@ -33,7 +33,7 @@ class SimpleFuryTests {
     @Test
     void basicSerDeser() {
 		ClientDto clientDto = new ClientDto(1L, "Victor", "Hugo", "France");
-		AccountDto accountDto = new AccountDto(1L, "GE-0123456789", clientDto, "ACTIVE", LocalDate.now(), new BigDecimal("2000.00"));
+		AccountDto accountDto = new AccountDto(1L, "GE-0123456789", clientDto, "ACTIVE", LocalDate.now(), new BigDecimal("2000.00"), "description");
 
 		byte[] serializedData = fury.serialize(accountDto);
 		AccountDto accountDtoDeser = (AccountDto) fury.deserialize(serializedData);

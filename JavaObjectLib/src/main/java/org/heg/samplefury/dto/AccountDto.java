@@ -5,13 +5,14 @@ import java.time.LocalDate;
 
 public class AccountDto {
 
-    public AccountDto(Long accountId, String noAccount, ClientDto client, String status, LocalDate openDate, BigDecimal amount) {
+    public AccountDto(Long accountId, String noAccount, ClientDto client, String status, LocalDate openDate, BigDecimal amount, String description) {
         this.accountId = accountId;
         this.noAccount = noAccount;
         this.client = client;
         this.status = status;
         this.openDate = openDate;
         this.amount = amount;
+        this.description = description;
     }
 
     private Long accountId;
@@ -25,6 +26,8 @@ public class AccountDto {
     private LocalDate openDate;
 
     private BigDecimal amount;
+
+    private String description;
 
     public Long getAccountId() {
         return accountId;
@@ -74,6 +77,14 @@ public class AccountDto {
         this.amount = amount;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         return "AccountDto{" +
@@ -83,6 +94,7 @@ public class AccountDto {
                 ", status='" + status + '\'' +
                 ", openDate=" + openDate +
                 ", amount=" + amount +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

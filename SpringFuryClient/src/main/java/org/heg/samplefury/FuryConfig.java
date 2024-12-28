@@ -1,6 +1,7 @@
 package org.heg.samplefury;
 
 import org.apache.fury.Fury;
+import org.apache.fury.config.CompatibleMode;
 import org.apache.fury.config.Language;
 import org.heg.samplefury.converter.FuryMessageConverter;
 import org.heg.samplefury.dto.AccountDto;
@@ -16,6 +17,7 @@ public class FuryConfig {
         Fury fury = Fury.builder()
                 .withLanguage(Language.JAVA)
                 .withAsyncCompilation(true)
+                .withCompatibleMode(CompatibleMode.COMPATIBLE)
                 .build();
         fury.register(AccountDto.class);
         fury.register(ClientDto.class);
