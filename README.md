@@ -13,4 +13,22 @@ Demo project Apache Fury : https://fury.apache.org/
 # branch main
 - classic json communication between SimpleFuryServer and SimpleFuryClient
 
-#
+# branch fury-ser
+- Add custom converter FuryMessageConverter to serialize/deserialize object in place of json
+- Manual register objects in fury bean with FuryConfig
+- Test fury communication between SpringFuryClient and SpringFuryServer
+  - case 1 :
+    - FuryServer and FuryClient use JavaObjectLib direct dependency with same version 1.0.0-SNAPSHOT
+  - case 2 :
+    - FuryServer use version 1.1.0-SNAPSHOT (add description to AccountDto)
+    - FuryClient use version 1.0.0-SNAPSHOT
+
+# branch fury-ser-annotation
+This branch use the fury-spring-boot-starter
+
+# repo fury-starter
+- Use annotation @FuryObject to discover and register objects
+- Configuration :
+  - org.fury.withLanguage to define fury language
+  - org.fury.scanPackages list package to scan for objects registration
+- Use mediaType fury or *+fury (FuryMediaType) to use fury serialization
