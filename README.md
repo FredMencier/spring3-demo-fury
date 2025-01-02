@@ -24,6 +24,11 @@ Demo project Apache Fury : https://fury.apache.org/
     - FuryClient use version 1.0.0-SNAPSHOT
 
 # branch fury-ser-annotation
-- Ajout d'une annotation @FurySerializer permettant de réaliser le register
-- Ajout d'un mediaType fury, *+fury afin de supporter json et fury
-- Ajout d'un check du supports dans FuryMessageConverter
+This branch use the fury-spring-boot-starter : https://github.com/FredMencier/fury-starter
+
+# repo fury-starter
+- Use annotation @FuryObject to discover and register objects
+- Configuration :
+  - org.fury.withLanguage to define fury language
+  - org.fury.scanPackages list package to scan for objects registration
+- Use mediaType fury or *+fury (FuryMediaType) to use fury serialization
