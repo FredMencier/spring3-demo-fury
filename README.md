@@ -24,7 +24,7 @@ Demo project Apache Fury : https://fury.apache.org/
     - FuryClient use version 1.0.0-SNAPSHOT
 
 # branch fury-ser-annotation
-This branch use the fury-spring-boot-starter
+This branch use the fury-spring-boot-starter : https://github.com/FredMencier/fury-starter
 
 # repo fury-starter
 - Use annotation @FuryObject to discover and register objects
