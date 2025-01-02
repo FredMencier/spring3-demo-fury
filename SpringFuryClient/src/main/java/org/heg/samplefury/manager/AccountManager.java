@@ -1,12 +1,13 @@
 package org.heg.samplefury.manager;
 
+import org.apache.fury.Fury;
+import org.fm.fury.FuryMediaType;
+import org.fm.fury.converter.FuryMessageConverter;
 import org.heg.samplefury.dto.AccountDto;
-import org.heg.samplefury.dto.ClientDto;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.logging.Logger;
 
 @Service
@@ -16,14 +17,38 @@ public class AccountManager {
 
     private final RestClient restClient;
 
-    public AccountManager(RestClient.Builder restClientBuilder) {
-        this.restClient = restClientBuilder.baseUrl("http://localhost:8081").build();
+    final
+    Fury fury;
+
+    public AccountManager(RestClient.Builder restClientBuilder, Fury fury) {
+        this.restClient = restClientBuilder
+                .baseUrl("http://localhost:8081")
+                .messageConverters(httpMessageConverters -> httpMessageConverters.add(new FuryMessageConverter(fury)))
+                .build();
+        this.fury = fury;
     }
 
-    public void callGetAccount() {
+    public void callGetAccountUsingJsonSerialization() {
+        LOG.info("Call getAccount to server using json serialization");
+        String accountNo = "GE-0123456789";
+        AccountDto accountDto = this.restClient
+                .get()
+                .uri("/accounts/search?accountNo={accountNo}", accountNo)
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .body(AccountDto.class);
+        LOG.info("Receive account from server : " + accountDto);
+    }
+
+    public void callGetAccountUsingFurySerialization() {
         LOG.info("Call getAccount to server using fury serialization");
         String accountNo = "GE-0123456789";
-        AccountDto accountDto = this.restClient.get().uri("/accounts/search?accountNo={accountNo}", accountNo).retrieve().body(AccountDto.class);
+        AccountDto accountDto = this.restClient
+                .get()
+                .uri("/accounts/search?accountNo={accountNo}", accountNo)
+                .accept(new MediaType("application", FuryMediaType.furySubType))
+                .retrieve()
+                .body(AccountDto.class);
         LOG.info("Receive account from server : " + accountDto);
     }
 }

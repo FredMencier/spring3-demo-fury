@@ -1,8 +1,11 @@
 package org.heg.samplefury.dto;
 
+import org.fm.fury.annotation.FuryObject;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@FuryObject
 public class AccountDto {
 
     public AccountDto(Long accountId, String noAccount, ClientDto client, String status, LocalDate openDate, BigDecimal amount, String description) {
@@ -14,6 +17,8 @@ public class AccountDto {
         this.amount = amount;
         this.description = description;
     }
+
+    public AccountDto() {}
 
     private Long accountId;
 

@@ -15,8 +15,13 @@ public class AccountController {
         this.accountManager = accountManager;
     }
 
-    @GetMapping(path = "/call")
-    public void call() {
-        accountManager.callGetAccount();
+    @GetMapping(path = "/callJson")
+    public void callJson() {
+        accountManager.callGetAccountUsingJsonSerialization();
+    }
+
+    @GetMapping(path = "/callFury")
+    public void callFury() {
+        accountManager.callGetAccountUsingFurySerialization();
     }
 }

@@ -1,5 +1,8 @@
 package org.heg.samplefury.dto;
 
+import org.fm.fury.annotation.FuryObject;
+
+@FuryObject
 public class ClientDto {
 
     public ClientDto(Long clientId, String firstname, String lastname, String country) {
@@ -8,6 +11,8 @@ public class ClientDto {
         this.lastname = lastname;
         this.country = country;
     }
+
+    public ClientDto() {}
 
     private Long clientId;
 

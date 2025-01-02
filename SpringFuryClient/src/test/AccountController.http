@@ -1,3 +1,6 @@
 @site=http://localhost:8082
 
-GET {{site}}/accounts/call
+GET {{site}}/accounts/callJson
+###
+
+GET {{site}}/accounts/callFury
