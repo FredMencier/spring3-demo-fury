@@ -1,5 +1,6 @@
 package org.heg.samplefury.manager;
 
+import org.apache.fury.BaseFury;
 import org.apache.fury.Fury;
 import org.fm.fury.FuryMediaType;
 import org.fm.fury.converter.FuryMessageConverter;
@@ -18,9 +19,9 @@ public class AccountManager {
     private final RestClient restClient;
 
     final
-    Fury fury;
+    BaseFury fury;
 
-    public AccountManager(RestClient.Builder restClientBuilder, Fury fury) {
+    public AccountManager(RestClient.Builder restClientBuilder, BaseFury fury) {
         this.restClient = restClientBuilder
                 .baseUrl("http://localhost:8081")
                 .messageConverters(httpMessageConverters -> httpMessageConverters.add(new FuryMessageConverter(fury)))
