@@ -24,4 +24,9 @@ public class AccountController {
     public void callFury() {
         accountManager.callGetAccountUsingFurySerialization();
     }
+
+    @GetMapping(path = "/callFuryReactive")
+    public void callFuryReactive() {
+        accountManager.callGetAccountReactiveUsingFurySerialization();
+    }
 }

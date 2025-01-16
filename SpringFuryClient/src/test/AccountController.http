@@ -4,3 +4,7 @@ GET {{site}}/accounts/callJson
 ###
 
 GET {{site}}/accounts/callFury
+
+###
+
+GET {{site}}/accounts/callFuryReactive

@@ -52,4 +52,16 @@ public class AccountManager {
                 .body(AccountDto.class);
         LOG.info("Receive account from server : " + accountDto);
     }
+
+    public void callGetAccountReactiveUsingFurySerialization() {
+        LOG.info("[Reactive] Call getAccount to server using fury serialization");
+        String accountNo = "GE-0123456789";
+        AccountDto accountDto = this.restClient
+                .get()
+                .uri("/accounts/reactive/search?accountNo={accountNo}", accountNo)
+                .accept(new MediaType("application", FuryMediaType.furySubType))
+                .retrieve()
+                .body(AccountDto.class);
+        LOG.info("[Reactive] Receive account from server : " + accountDto);
+    }
 }
