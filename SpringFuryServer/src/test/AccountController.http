@@ -1,3 +1,9 @@
 @site=http://localhost:8081
 
 GET {{site}}/accounts/search?accountNo=GE-0123456789
+Accept: application/fury
+
+###
+
+GET {{site}}/accounts/search?accountNo=GE-0123456789
+Accept: application/json

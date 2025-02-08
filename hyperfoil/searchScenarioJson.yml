@@ -1,0 +1,12 @@
+name: search-benchmark
+http:
+  host: http://host.docker.internal:8081
+  sharedConnections: 10
+duration: 10s
+usersPerSec: 10
+scenario:
+  - search-json-endpoint:
+      - httpRequest:
+          headers:
+            accept: application/json
+          GET: /accounts/search?accountNo=GE-0123456789
