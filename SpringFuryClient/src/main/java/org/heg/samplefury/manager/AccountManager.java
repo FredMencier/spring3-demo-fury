@@ -1,7 +1,6 @@
 package org.heg.samplefury.manager;
 
 import org.apache.fury.BaseFury;
-import org.apache.fury.Fury;
 import org.fm.fury.FuryMediaType;
 import org.fm.fury.converter.FuryMessageConverter;
 import org.heg.samplefury.dto.AccountDto;
@@ -18,8 +17,7 @@ public class AccountManager {
 
     private final RestClient restClient;
 
-    final
-    BaseFury fury;
+    private final BaseFury fury;
 
     public AccountManager(RestClient.Builder restClientBuilder, BaseFury fury) {
         this.restClient = restClientBuilder
