@@ -17,15 +17,13 @@ public class AccountManager {
 
     private final RestClient restClient;
 
-    private final BaseFury fury;
-
     public AccountManager(RestClient.Builder restClientBuilder, BaseFury fury) {
         this.restClient = restClientBuilder
                 .baseUrl("http://localhost:8081")
                 .messageConverters(httpMessageConverters -> httpMessageConverters.add(new FuryMessageConverter(fury)))
                 .build();
-        this.fury = fury;
     }
+
 
     public void callGetAccountUsingJsonSerialization() {
         LOG.info("Call getAccount to server using json serialization");
